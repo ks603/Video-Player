@@ -58,6 +58,21 @@ function setProgress(e) {
 
 // Volume Controls --------------------------- //
 
+// Volume Bar
+function changeVolume(e) {
+  let volume = e.offsetX / volumeRange.offsetWidth
+  // Rounding volume up or down
+  if (volume < 0.1) {
+    volulme = 0
+  }
+  if (volume > 0.9) {
+    volume = 1
+  }
+  volumeBar.style.width = `${volume * 100}%`
+  video.volume = volume
+  console.log(e)
+}
+
 // Change Playback Speed -------------------- //
 
 // Fullscreen ------------------------------- //
@@ -68,3 +83,4 @@ video.addEventListener('click', togglePlay)
 video.addEventListener('timeupdate', updateProgress)
 video.addEventListener('canplay', updateProgress)
 progressRange.addEventListener('click', setProgress)
+volumeRange.addEventListener('click', changeVolume)
