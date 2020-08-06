@@ -71,6 +71,11 @@ function changeVolume(e) {
   volumeBar.style.width = `${volume * 100}%`
   video.volume = volume
   console.log(e)
+  // Change icon depending on volume
+  volumeIcon.className = ''
+  volume > 0.5
+    ? volumeIcon.classList.add('fas', 'fa-volume-up')
+    : volumeIcon.classList.add('fas', 'fa-volume-down')
 }
 
 // Change Playback Speed -------------------- //
